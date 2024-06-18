@@ -13,10 +13,16 @@ function Home() {
       const currentDate = new Date();
       currentDate.setDate(currentDate.getDate() - 1); // Subtract one day
       const formattedDate = currentDate.toISOString().slice(0, 10); // Format: YYYY-MM-DD
-      const API_URL = `https://newsapi.org/v2/everything?q=apple&from=${formattedDate}&to=${formattedDate}&sortBy=popularity&apiKey=ce024b9699f847119692fddeb2abfbac`;
+      const API_URL = `https://newsapi.org/v2/everything?q=tesla&from=${formattedDate}&to=${formattedDate}&sortBy=popularity&apiKey=ce024b9699f847119692fddeb2abfbac`;
 
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL ,{
+          method: 'GET',
+        headers: {
+            'Upgrade': 'h2c',
+            'Connection': 'Upgrade'
+        }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -46,7 +52,13 @@ function Home() {
     const API_URL = `https://newsapi.org/v2/everything?q=${search}&from=${formattedDate}&to=${formattedDate}&sortBy=popularity&apiKey=ce024b9699f847119692fddeb2abfbac`;
 
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(API_URL ,{
+        method: 'GET',
+        headers: {
+            'Upgrade': 'h2c',
+            'Connection': 'Upgrade'
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
