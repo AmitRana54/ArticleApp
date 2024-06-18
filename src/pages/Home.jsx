@@ -63,7 +63,8 @@ function Home() {
   }
 
   return (
-    <>
+    
+    <div className="main h-auto w-auto ">
       <div className="flex justify-end items-center h-20 mb-6 mr-6">
         <form onSubmit={handleSearchResults} className="flex items-center rounded-lg border border-gray-300 overflow-hidden">
           <input
@@ -77,7 +78,7 @@ function Home() {
         </form>
       </div>
 
-      <div className="h-full w-full grid grid-cols-3 p-6 gap-6">
+      <div className="h-auto w-full grid grid-cols-3 p-6 gap-6">
         {currentArticles &&
           currentArticles.map((article, index) => (
             <ArticleLayout
@@ -86,6 +87,7 @@ function Home() {
               title={article?.title}
               article={article}
               summary={article?.description}
+              link={article?.url}
             />
           ))}
       </div>
@@ -106,7 +108,8 @@ function Home() {
           Next
         </button>
       </div>
-    </>
+      </div>
+    
   );
 }
 
