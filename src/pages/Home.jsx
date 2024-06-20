@@ -19,7 +19,7 @@ function Home() {
         const response = await fetch(API_URL ,{
           method: 'GET',
         headers: {
-            'Upgrade': 'h2c',
+            'Upgrade': 'https',
             'Connection': 'Upgrade'
         }
         });
